@@ -7,48 +7,104 @@
     padding: 20px;
 }
 
+.backgroundImage{
+    position: absolute;
+    width: 250px;
+    height: 450px;
+    object-fit: cover;
+    z-index: 0;
+}
+
 .contentPanel{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     height: 450px;
     width: 250px;
-    background-color: #000000;
 }
 .recordSprite img{
-    margin-top: -100px;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 150px;
     height: 150px;
+    z-index: 1;
 }
 .songInfo{
     font-family: 'Helevetica', sans-serif;
-    margin-top: 30px;
-    justify-content: center;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 0px;
+    color: #3d2f45;
+    width: 100%;
+    z-index: 1;
 }
 
 .songInfo h2{
     font-size: 24px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 .songInfo p{
     font-size: 18px;
-    margin-top: 2px;
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 .ProgressBar{
-    margin-top: 0px;
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 200px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     justify-content: center;
-
+    z-index: 1;
 }
 .progressSlider{
     width: 150%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: linear-gradient(to right, #400320 0%, #400320 0%, #ddd 0%, #ddd 100%);
+    outline: none;
+    border-radius: 5px;
+}
+
+/* Thumb (draggable circle) */
+.progressSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #400320;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+
+.progressSlider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #400320;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+/* Track (the bar) */
+.progressSlider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 5px;
+}
+
+.progressSlider::-moz-range-track {
+    height: 6px;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.progressSlider::-moz-range-progress {
+    height: 6px;
+    background: #400320;
+    border-radius: 5px;
 }

@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
     <link rel="stylesheet" href="music-player.css">
+    <script src="music-player.js"></script>
 </head>
 <body>
     <div class="alignmentPanel">
         <div class="contentPanel">  
+            <img src="assets/PanelSprite.png" alt="Background Image" class="backgroundImage">
             <div class="recordSprite">
                 <img src="assets/RecordSprite.png" alt="Record Sprite">
             </div>
@@ -17,11 +19,11 @@
                 <p>Artist Name</p>
             </div>
             <div class="ProgressBar">
-            <input type="range" min="0" max="100" value="0" class="progressSlider">
+                <input type="range" min="0" max="100" value="0" class="progressSlider">
             </div>
-        </div>     
-        </div> 
+            <div class="controls">
+            </div>
+        </div>      
     </div>
-    
 </body>
 </html>
