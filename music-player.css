@@ -108,3 +108,15 @@
     background: #400320;
     border-radius: 5px;
 }
+
+.controls{
+    position: absolute;
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    z-index: 1;
+}

@@ -15,12 +15,18 @@ const songs = [
 
     }
 ];
+let currentSongIndex = 0; // Track which song is playing
+
+// Function to load and display a song
+function loadSong(index) {
+    const song = songs[index];
+    document.querySelector('.songInfo h2').textContent = song.name;
+    document.querySelector('.songInfo p').textContent = song.artist;
+    // audioElement.src = song.audio;
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Load first song
-    const currentSong = songs[0];
-    document.querySelector('.songInfo h2').textContent = currentSong.name;
-    document.querySelector('.songInfo p').textContent = currentSong.artist;
-
+    loadSong(0);
     // Progress bar fill
     const progressSlider = document.querySelector('.progressSlider');
     
@@ -31,4 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     progressSlider.addEventListener('input', updateProgressBar);
     updateProgressBar(); // Initialize
+
+    // Play button
+    const pauseButton = document.getElementById('pauseButton');
+    pauseButton.addEventListener('click', function() {
+        console.log("Play button was clicked");
+    });
+
+    //Next button
+    const nextButton = document.getElementById("nextButton");
+    nextButton.addEventListener("click", nextSong());
+
+    //Previous button
+    const prevButton = document.getElementById("prevButton");
+    prevButton.addEventListener("click", function() {
+        console.log("Previous button was clicked");
+    })
 });
