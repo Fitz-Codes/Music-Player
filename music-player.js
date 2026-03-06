@@ -1,41 +1,70 @@
-const songs = [
+const songsList = [
 
     {
-        image: "assets/Malcolm Todd Cover.jpg",
         name: "Out of Bounds",
         artist: "Malcolm Todd",
         audio: "assets/Malcolm Todd - Out of Bounds (SPOTISAVER).mp3",
     },
 
     {
-        image: "assets/Malcolm Todd Cover.jpg",
-        name: "",
+        name: "Hesitating",
         artist: "Malcolm Todd",
-        audio:
+        audio:"assets/Malcolm Todd - Hesitating (SPOTISAVER).mp3"
     },
 
     {
+        name:"",
+        artist:"",
+        audio:""
+    },
 
-    }
+    {
+        name:"",
+        artist:"",
+        audio:""
+    },
+
+    {
+        name:"",
+        artist:"",
+        audio:""
+    },
+
+    {
+        name:"",
+        artist:"",
+        audio:""
+    },
+    
 ];
 let currentSongIndex = 0; // Track which song is playing
-const audioElement = new Audio();
+let audioElement = new Audio();
 
 // Function to load and display a song
 function loadSong(index) {
-    const song = songs[index];
+    let song = songsList[index];
     document.querySelector('.songInfo h2').textContent = song.name;
     document.querySelector('.songInfo p').textContent = song.artist;
     audioElement.src = song.audio;
+    audioElement.addEventListener('loadedmetadata', function() {
+        const progressSlider = document.querySelector('.progressSlider');
+        progressSlider.max = Math.floor(audioElement.duration);
+    });
 }
 
 // Function to play next song
 function nextSong() {
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    currentSongIndex = (currentSongIndex + 1);
     loadSong(currentSongIndex);
     audioElement.play();
 }
 
+//Function to play previous song
+function prevSong(){
+    currentSongIndex = (currentSongIndex - 1);
+    loadSong(currentSongIndex);
+    audioElement.play();
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Load first song
     loadSong(0);
@@ -58,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (paused == false){
             audioElement.pause();
             paused = true;
+            pauseButton.style.background
         }
         else{
             audioElement.play();
@@ -71,8 +101,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Previous button
     const prevButton = document.getElementById("prevButton");
-    prevButton.addEventListener("click", function() {
-        console.log("Previous button was clicked");
-        nextSong();
-    })
+    prevButton.addEventListener("click", prevSong);
+
+    // Update progress bar as song plays
+    audioElement.addEventListener('timeupdate', function() {
+        progressSlider.value = Math.floor(audioElement.currentTime);
+        updateProgressBar();
+    });
+
+    // Allow user to seek through the song by clicking the progress bar
+    progressSlider.addEventListener('change', function() {
+        audioElement.currentTime = progressSlider.value;
+    });
 });
