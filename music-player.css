@@ -28,6 +28,21 @@
     width: 150px;
     height: 150px;
     z-index: 1;
+    animation: spin 5s linear infinite;
+    animation-play-state: paused;
+}
+
+.recordSprite img.spinning {
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
 }
 .songInfo{
     font-family: 'Helevetica', sans-serif;

@@ -13,32 +13,34 @@ const songsList = [
     },
 
     {
-        name:"",
-        artist:"",
-        audio:""
+        name:"Starstudded",
+        artist:"Malcolm Todd",
+        audio:"assets/Malcolm Todd - Starstudded (SPOTISAVER).mp3"
     },
 
     {
-        name:"",
-        artist:"",
-        audio:""
+        name:"Phones",
+        artist:"Malcolm Todd",
+        audio:"assets/Malcolm Todd - Phones (SPOTISAVER).mp3"
     },
 
     {
-        name:"",
-        artist:"",
-        audio:""
+        name:"Lately",
+        artist:"Malcolm Todd",
+        audio:"assets/Malcolm Todd - Lately (SPOTISAVER).mp3"
     },
 
     {
-        name:"",
-        artist:"",
-        audio:""
+        name:"In a Trance",
+        artist:"Malcolm Todd",
+        audio:"assets/Malcolm Todd - In a Trance (SPOTISAVER).mp3"
     },
     
 ];
 let currentSongIndex = 0; // Track which song is playing
 let audioElement = new Audio();
+let paused = true;
+let recordImage; // Will be initialized after DOM loads
 
 // Function to load and display a song
 function loadSong(index) {
@@ -54,20 +56,28 @@ function loadSong(index) {
 
 // Function to play next song
 function nextSong() {
+    paused = false;
     currentSongIndex = (currentSongIndex + 1);
     loadSong(currentSongIndex);
     audioElement.play();
+    recordImage.classList.add("spinning");
 }
 
 //Function to play previous song
 function prevSong(){
+    paused = false;
     currentSongIndex = (currentSongIndex - 1);
     loadSong(currentSongIndex);
     audioElement.play();
+    recordImage.classList.add("spinning");
 }
 document.addEventListener('DOMContentLoaded', function() {
     // Load first song
     loadSong(0);
+    
+    // Initialize record image reference
+    recordImage = document.querySelector('.recordSprite img');
+    
     // Progress bar fill
     const progressSlider = document.querySelector('.progressSlider');
     
@@ -81,17 +91,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Play button
     const pauseButton = document.getElementById('pauseButton');
-    let paused = true;
     pauseButton.addEventListener('click', function() {
         console.log("Play button was clicked");
         if (paused == false){
             audioElement.pause();
             paused = true;
-            pauseButton.style.background
+            recordImage.classList.remove('spinning');
         }
         else{
             audioElement.play();
             paused = false;
+            recordImage.classList.add('spinning');
         }
     });
 
