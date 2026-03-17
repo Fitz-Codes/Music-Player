@@ -1,3 +1,45 @@
+/* Lower prev and next buttons */
+#prevButton, #nextButton {
+    margin: 0;
+}
+/* Style for all control buttons except pause */
+.controlButton {
+    width: 50px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0;
+    align-self: flex-end;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.controlButton:hover {
+    background: #e0e0e0;
+}
+
+/* Pause button: remove box, show only image */
+#pauseButton {
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#pauseButton img {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: auto;
+}
 .alignmentPanel{
     display: flex;
     justify-content: center;
@@ -126,12 +168,13 @@
 
 .controls{
     position: absolute;
-    top: 360px;
+    top: 350px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    padding: 0 10px;
     z-index: 1;
 }

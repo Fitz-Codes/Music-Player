@@ -57,7 +57,12 @@ function loadSong(index) {
 // Function to play next song
 function nextSong() {
     paused = false;
-    currentSongIndex = (currentSongIndex + 1);
+    if(currentSongIndex + 1 > songsList.length){
+        currentSongIndex = 0;
+    }
+    else{
+        currentSongIndex = (currentSongIndex + 1);
+    }
     loadSong(currentSongIndex);
     audioElement.play();
     recordImage.classList.add("spinning");
