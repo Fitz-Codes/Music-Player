@@ -1,44 +1,33 @@
-/* Lower prev and next buttons */
-#prevButton, #nextButton {
-    margin: 0;
-}
-/* Style for all control buttons except pause */
-.controlButton {
-    width: 50px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin: 0;
-    align-self: flex-end;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.controlButton:hover {
-    background: #e0e0e0;
+.controlButton#prevButton,
+.controlButton#nextButton {
+    margin-left: -20px;
+    margin-right: -20px;
 }
 
-/* Pause button: remove box, show only image */
-#pauseButton {
+/* Style all control buttons to show only the image, no background, same size, centered */
+.controlButton {
+    width: 90px;
+    height: 90px;
     background: none;
     border: none;
     box-shadow: none;
-    width: auto;
-    height: auto;
     padding: 0;
-    margin: 0 5px;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s;
 }
-#pauseButton img {
+.controlButton img {
     width: 80px;
     height: 80px;
+    object-fit: contain;
     display: block;
-    margin: auto;
+}
+
+.controlButton:hover {
+    transform: scale(1.08);
 }
 .alignmentPanel{
     display: flex;
@@ -168,13 +157,12 @@
 
 .controls{
     position: absolute;
-    top: 350px;
+    top: 340px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 70%;
-    padding: 0 10px;
+    gap: 0px;
     z-index: 1;
 }
