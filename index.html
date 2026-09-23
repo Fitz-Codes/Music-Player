@@ -8,31 +8,36 @@
     <script src="music-player.js"></script>
 </head>
 <body>
-    <div class="alignmentPanel">
-        <div class="contentPanel">  
-            <img src="assets/PanelSprite.png" alt="Background Image" class="backgroundImage">
-            <div class="recordSprite">
-                <img src="assets/RecordSprite.png" alt="Record Sprite">
+    <div class="backgroundPanel">
+        <img src="assets/Background-Image.jpg" alt="Background Image" class="backgroundImage">
+            <div class="alignmentPanel">
+                <div class="contentPanel">  
+                        <img src="assets/PanelSprite.png" alt="Background Image" class="backgroundImage">
+                        <div class="recordSprite">
+                            <img src="assets/RecordSprite.png" alt="Record Sprite">
+                        </div>
+                        <div class="songInfo">
+                            <h2>Song Title</h2>
+                            <p>Artist Name</p>
+                        </div>
+                        <div class="ProgressBar">
+                            <input type="range" min="0" max="100" value="0" class="progressSlider">
+                        </div>
+                        <div class="controls">
+                            <button class="controlButton" id="prevButton">
+                                <img src="assets/ReWindSprite.png">
+                            </button>
+                            <button class="controlButton" id="pauseButton">
+                                <img src="assets/PauseBtnSprite.png">
+                            </button>
+                            <button class="controlButton" id="nextButton">
+                                <img src="assets/FastFwdBtnSprite.png">
+                            </button>
+                        </div>
+                    </div>      
+                </div>
             </div>
-            <div class="songInfo">
-                <h2>Song Title</h2>
-                <p>Artist Name</p>
-            </div>
-            <div class="ProgressBar">
-                <input type="range" min="0" max="100" value="0" class="progressSlider">
-            </div>
-            <div class="controls">
-                <button class="controlButton" id="prevButton">
-                    <img src="assets/ReWindSprite.png">
-                </button>
-                <button class="controlButton" id="pauseButton">
-                    <img src="assets/PauseBtnSprite.png">
-                </button>
-                <button class="controlButton" id="nextButton">
-                    <img src="assets/FastFwdBtnSprite.png">
-                </button>
-            </div>
-        </div>      
+        </div>
     </div>
 </body>
 </html>
